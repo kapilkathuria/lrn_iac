@@ -1,12 +1,24 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "name": {
+      "type": "string",
+      "defaultValue": "kapil001"
+    },
+    "administratorLogin": {
+      "type": "string",
+      "defaultValue": "nomuraadmin"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    }
+  },
   "functions": [],
   "variables": {},
   "resources": [
  {
-  "name": "kapil001",
+  "name": "[parameters('name')]",
   "type": "Microsoft.Sql/servers",
   "apiVersion": "2021-11-01",
   "location": "[resourceGroup().location]",
@@ -14,8 +26,8 @@
     "displayName": "kapil001"
   },
   "properties": {
-    "administratorLogin": "nomuraadmin",
-    "administratorLoginPassword": "admin@123"
+    "administratorLogin": "[parameters('administratorLogin')]",
+    "administratorLoginPassword": "[parameters('adminPassword')]"
   },
   "resources": [
     {
