@@ -1,0 +1,8 @@
+# Azure infra automation
+Install-Module -Name Az -Repository PSGallery -Force
+# Intune module
+Install-Module -Name Microsoft.Graph.Intune
+# teams module - used by Matt
+Install-Module -Name MicrosoftTeams -AllowPrerelease
+# other similar module available
+Install-Module -Name Microsoft.Graph.Teams
