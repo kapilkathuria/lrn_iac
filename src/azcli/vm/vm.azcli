@@ -1,0 +1,23 @@
+$resourceGroup = 'resourcekapil'
+$location = 'eastus'
+
+# login
+az login
+
+# create resource group
+az group create --name $resourceGroup --location $location
+
+# create a VM
+ az vm create --name Lesson03VM --resource-group $resourceGroup --image Ubuntu2204 --public-ip-sku Basic --generate-ssh-keys
+
+# Get details of resource
+az resource list --name Lesson03VM
+# to list all resources
+az resource list --output table
+
+# To get only the id of resource
+az resource list --query "[?name=='Lesson03VM'].[id]" --output tsv
+
+# Delete a resource group and all resources inside it
+az group delete --name $resourceGroup
+az group delete --name NetworkWatcherRG
