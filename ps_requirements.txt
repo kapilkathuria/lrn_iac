@@ -6,3 +6,6 @@ Install-Module -Name Microsoft.Graph.Intune
 Install-Module -Name MicrosoftTeams -AllowPrerelease
 # other similar module available
 Install-Module -Name Microsoft.Graph.Teams
+# Azure CLI - https://learn.microsoft.com/en-us/cli/azure/install-azure-cli#install
+# Manually installed x64 bit MSI 
+# and added C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin in PATH

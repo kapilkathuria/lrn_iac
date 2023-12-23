@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Log in to Azure
+az login
+# create resource group
+az group create --name resourcekapil --location eastus
+
+# list groups created
+az group list
+az group list --output table

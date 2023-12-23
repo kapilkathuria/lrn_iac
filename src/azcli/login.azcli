@@ -1,0 +1,8 @@
+# 
+# To install Azure CLI: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli#install
+
+echo $SHELL
+
+# Login
+az login -u username -p password
+az login
