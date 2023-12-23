@@ -1,0 +1,84 @@
+# Regarding line continuation 
+# https://github.com/microsoft/vscode-azurecli/issues/49
+# If you are using PowerShell in the terminal you need to replace the backslashes with backticks. 
+# If you are using CMD you need to replace the backslashes with carets (^). 
+
+$resourceGroup = 'resourcekapil'
+$location = 'eastus'
+$vmname = 'Lesson03VM'
+
+# login
+az login
+
+# create resource group
+az group create --name $resourceGroup --location $location
+
+# create a VM
+az vm create --name $vmname --resource-group $resourceGroup `
+--image Ubuntu2204 --public-ip-sku Basic --generate-ssh-keys
+
+# install nginx
+# below command will work only in Powershell
+# If you are running in bash, quotes will have to be adjusted. See below
+# see https://github.com/Azure/azure-cli/blob/dev/doc/quoting-issues-with-powershell.md
+az vm extension set --resource-group $resourceGroup --vm-name $vmname  `
+--name customScript --publisher Microsoft.Azure.Extensions --version 2.1 `
+--settings '{\"fileUris\":[\"https://raw.githubusercontent.com/MicrosoftDocs/mslearn-welcome-to-azure/master/configure-nginx.sh\"]}' `
+--protected-settings '{\"commandToExecute\": \"./configure-nginx.sh\"}'
+--debug
+
+# To install nginx when running azure cli in Bash
+# below should work but is not tested
+az vm extension set \
+  --resource-group $resourceGroup \
+  --vm-name $vmname \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.1 \
+  --settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-welcome-to-azure/master/configure-nginx.sh"]}' \
+  --protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
+
+# Get details of resource
+az resource list --name $vmname
+# to list all resources
+az resource list --output table
+# list all VMs
+az vm list --output table
+
+# get your VM's IP address and store the result as a Bash variable
+az vm list-ip-addresses `
+  --resource-group $resourceGroup `
+  --name $vmname `
+  --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" `
+  --output tsv
+
+# check webpage, it won't work as firewall is currently blocking it
+curl "http://20.231.28.158" -TimeoutSec 5
+
+# Get network security group
+az network nsg list --resource-group $resourceGroup --query '[].name' --output tsv
+
+# list the rules associated with the NSG named my-vmNSG
+az network nsg rule list `
+  --resource-group $resourceGroup `
+  --nsg-name Lesson03VMNSG `
+  --query '[].{Name:name, Priority:priority, Port:destinationPortRange, Access:access}' `
+  --output table
+
+# create a rule called allow-http
+az network nsg rule create --resource-group $resourceGroup --nsg-name Lesson03VMNSG --name allow-http `
+  --protocol tcp --priority 100 --destination-port-range 80 --access Allow
+
+# let's check webpage agaiin, it should work
+curl "http://20.231.28.158" -TimeoutSec 5
+
+# To get only the id of resource
+az resource list --query "[?name=='Lesson03VM'].[id]" --output tsv
+
+# list all resources
+az resource list --output table
+
+# Delete a resource group and all resources inside it
+az group delete --name $resourceGroup
+az group delete --name NetworkWatcherRG
+
