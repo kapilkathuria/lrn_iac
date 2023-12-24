@@ -6,3 +6,15 @@ echo $SHELL
 # Login
 az login -u username -p password
 az login
+
+# Get Azure Subscription, Tenant, Client ID, Client secret
+# https://geeksarray.com/blog/get-azure-subscription-tenant-client-id-client-secret
+# Tenant id
+az account show --query tenantId
+az account tenant list
+
+# subscription id
+az account show --query id --output tsv
+
+# tenant name
+az account list --query "[?isDefault].tenantId | [0]" --output tsv

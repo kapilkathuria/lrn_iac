@@ -1,0 +1,7 @@
+# python
+venv
+./venv
+
+# env and credential files
+.env
+auth.json
