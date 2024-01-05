@@ -8,3 +8,7 @@ https://www.manning.com/books/azure-infrastructure-as-code
 https://github.com/AzureIaCBook/book-templates/tree/main
 
 Practial Progress - https://learning.oreilly.com/library/view/azure-infrastructure-as/9781617299421/OEBPS/Text/03.htm#:-:text=Fetching%20parameters%20from%20a%20Key%20Vault
+
+## DSC
+https://app.pluralsight.com/library/courses/windows-powershell-desired-state-configuration/table-of-contents
+https://microsoft365dsc.com/
