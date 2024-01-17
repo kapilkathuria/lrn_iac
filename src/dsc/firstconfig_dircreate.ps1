@@ -1,5 +1,5 @@
 configuration sample {
-  Import-DscResource -ModuleName PSDesriedStateConfiguration -ModuleVersion 1.1
+  Import-DscResource -ModuleName PSDesiredStateConfiguration
 
   Node . {
     File Demo {

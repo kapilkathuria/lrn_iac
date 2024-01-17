@@ -1,3 +1,4 @@
+# Powershell version 7.x
 Get-DscResource -Name Intune*
 Get-DscResource
 Get-DscResource -Name IntuneDeviceCategory | Select-Object Properties -ExpandProperty Properties | Format-Table
@@ -30,9 +31,21 @@ Get-DscResource File -Syntax
 Get-Module PowerShellGet -ListAvailable
 Get-Module PackageManagement -ListAvailable
 # install dsc modules
-Install-Module -Name PSDesriedStateConfiguration -Force -Scope CurrentUser
+Install-Module -Name PSDesiredStateConfiguration
 
 # help
 . .\src\dsc\2firstconfig_dir.ps1
-help machineconfig
+. .\src\dsc\machineconfig.ps1
+help LabConfig
+help sample
 
+# Let's create a 2nd config with variable and try
+. .\src\dsc\secondconfig.ps1
+help sample7
+# running below command will create mof file
+sample7 -OutputPath .\src\dsc
+Start-DscConfiguration -Path .\src\dsc -Verbose -Wait
+
+
+# help - if powershell remoting is not enabled, run below command
+winrm quickconfig

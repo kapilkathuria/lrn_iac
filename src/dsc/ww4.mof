@@ -1,0 +1,63 @@
+/*
+@TargetNode='ww4'
+@GeneratedBy=kapil
+@GenerationDate=01/17/2024 18:34:55
+@GenerationHost=WW4
+*/
+
+instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+{
+Type = "Directory";
+ ModuleName = "PSDesiredStateConfiguration";
+ DestinationPath = "c:\\dsc";
+ SourceInfo = "C:\\Users\\kapil\\projects\\lrn_iac\\src\\dsc\\secondconfig.ps1::5::5::File";
+ ResourceID = "[File]DemoFolder";
+ Ensure = "Present";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "sample7";
+};
+instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration2ref
+{
+Type = "File";
+ ModuleName = "PSDesiredStateConfiguration";
+ Contents = "Created with DSC";
+ DestinationPath = "c:\\dsc\\test.txt";
+ SourceInfo = "C:\\Users\\kapil\\projects\\lrn_iac\\src\\dsc\\secondconfig.ps1::11::5::File";
+ ResourceID = "[File]DemoFile";
+ Ensure = "Present";
+
+ModuleVersion = "1.0";
+DependsOn = {
+    "[File]DemoFolder"};
+ ConfigurationName = "sample7";
+};
+instance of MSFT_ServiceResource as $MSFT_ServiceResource1ref
+{
+SourceInfo = "C:\\Users\\kapil\\projects\\lrn_iac\\src\\dsc\\secondconfig.ps1::19::5::Service";
+ ModuleName = "PsDesiredStateConfiguration";
+ State = "Running";
+ Name = "winrm";
+ ResourceID = "[Service]winrm";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "sample7";
+};
+instance of OMI_ConfigurationDocument
+
+                    {
+ Version="2.0.0";
+
+                        MinimumCompatibleVersion = "1.0.0";
+
+                        CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+
+                        Author="kapil";
+
+                        GenerationDate="01/17/2024 18:34:55";
+
+                        GenerationHost="WW4";
+
+                        Name="sample7";
+
+                    };
