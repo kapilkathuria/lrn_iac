@@ -5,3 +5,7 @@ venv
 # env and credential files
 .env
 auth.json
+
+# log file
+/log
+*.log

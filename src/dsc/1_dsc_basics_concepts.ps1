@@ -1,3 +1,9 @@
+# my dsc documentation: 
+# https://jiayou.atlassian.net/wiki/spaces/~5dbc7a6893536d0c3579eef9/pages/337739777/DSC
+
+# references
+# https://learn.microsoft.com/en-us/shows/getting-started-with-powershell-dsc/
+
 # Powershell version 7.x
 Get-DscResource -Name Intune*
 Get-DscResource
@@ -6,6 +12,10 @@ Get-DscResource -Name IntuneDeviceCategory | Select-Object Properties -ExpandPro
 # To find dsc resource
 Find-DSCResource -Name smbshare
 Find-DSCResource -Name intune
+# count number of resources
+Find-DscResource -OutVariable r | measure
+# to see these resources
+Find-DscResource -OutVariable r | Out-GridView
 
 Find-Module Microsoft365DSC | Tee-Object -Variable m
 $m | Format-Table author, publisheddate, projecturi, description -Wrap

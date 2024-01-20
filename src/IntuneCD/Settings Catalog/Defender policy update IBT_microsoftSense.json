@@ -1,0 +1,48 @@
+{
+     "creationSource": null,
+     "description": "Defender policy update for intune backup test",
+     "name": "Defender policy update IBT",
+     "platforms": "windows10",
+     "priorityMetaData": null,
+     "roleScopeTagIds": [
+          "0"
+     ],
+     "settingCount": 1,
+     "technologies": "mdm,microsoftSense",
+     "templateReference": {
+          "templateId": "e3f74c5a-a6de-411d-aef6-eb15628f3a0a_1",
+          "templateFamily": "endpointSecurityAntivirus",
+          "templateDisplayName": "Defender Update controls",
+          "templateDisplayVersion": "Version 1"
+     },
+     "settings": [
+          {
+               "id": "0",
+               "settingInstance": {
+                    "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                    "settingDefinitionId": "device_vendor_msft_defender_configuration_securityintelligenceupdateschannel",
+                    "settingInstanceTemplateReference": {
+                         "settingInstanceTemplateId": "ba273649-e186-4377-89d5-87405bc9a87c"
+                    },
+                    "choiceSettingValue": {
+                         "value": "device_vendor_msft_defender_configuration_securityintelligenceupdateschannel_5",
+                         "settingValueTemplateReference": {
+                              "settingValueTemplateId": "41ea06bf-e94a-482a-9aaa-7fd535fb4150",
+                              "useTemplateDefault": false
+                         },
+                         "children": []
+                    }
+               }
+          }
+     ],
+     "assignments": [
+          {
+               "source": "direct",
+               "target": {
+                    "@odata.type": "#microsoft.graph.allDevicesAssignmentTarget",
+                    "deviceAndAppManagementAssignmentFilterId": null,
+                    "deviceAndAppManagementAssignmentFilterType": "none"
+               }
+          }
+     ]
+}
