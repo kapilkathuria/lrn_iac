@@ -8,7 +8,7 @@ $Credential = Get-Credential
 # Export-M365DSCConfiguration `
 #   -Components @("IntuneAccountProtectionPolicy") `
 #   -Credential $Credential `
-#   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\config
+#   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
 
 # Exporting resources using SP
 # Export-M365DSCConfiguration `
@@ -16,10 +16,10 @@ $Credential = Get-Credential
 #   -ApplicationId "379246f4-c0f6-4364-b60d-f45793394bf1" `
 #   -TenantId kapildev1.onmicrosoft.com `
 #   -ApplicationSecret "FoG8Q~1W8zrLZz2NadccO0txR3fgSsXJZ5epQcKu" `
-#   -Path C:\Users\kapil\projects\lrn_iac\src\dsc
+#   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
 
   # explort all Intune related configuration
 Export-M365DSCConfiguration `
   -Workloads @("INTUNE") `
   -Credential $Credential `
-  -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\config
+  -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
