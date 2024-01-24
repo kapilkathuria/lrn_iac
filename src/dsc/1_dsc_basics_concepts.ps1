@@ -56,6 +56,8 @@ help sample7
 sample7 -OutputPath .\src\dsc
 Start-DscConfiguration -Path .\src\dsc -Verbose -Wait
 
+# Test config
+Test-DscConfiguration -Path .\src\dsc # -Detailed -Verbose -Wait
 
 # help - if powershell remoting is not enabled, run below command
 winrm quickconfig
