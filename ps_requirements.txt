@@ -12,3 +12,4 @@ Install-Module -Name Microsoft.Graph.Teams
 
 # Needed for DSC
 Install-Module -Name PSDesiredStateConfiguration
+Install-Module -Name Set-PsEnv
