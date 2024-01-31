@@ -1,0 +1,8 @@
+ApplicationId=
+TenantId=
+ApplicationSecret=
+
+M365DSCAppName=Microsoft365DSC
+M365DSCAppCer=C:\Users\kapil\projects\lrn_iac\M365DSC.cer
+M365DSCCertificateThumbprint=
+M365DSCAppCerDetail=

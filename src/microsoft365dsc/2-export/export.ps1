@@ -21,17 +21,32 @@ Set-PsEnv
 #   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
 
 # Exporting resources using SP
-Export-M365DSCConfiguration `
-  -Components @("IntuneAntivirusPolicyWindows10SettingCatalog") `
-  -ApplicationId $env:ApplicationId `
-  -TenantId $env:TenantId `
-  -ApplicationSecret $env:ApplicationSecret `
-  -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
+# Export-M365DSCConfiguration `
+#   -Components @("IntuneAntivirusPolicyWindows10SettingCatalog") `
+#   -ApplicationId $env:ApplicationId `
+#   -TenantId $env:TenantId `
+#   -ApplicationSecret $env:ApplicationSecret `
+#   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
+
+# Export-M365DSCConfiguration `
+#   -Workloads @("INTUNE") `
+#   -ApplicationId $env:ApplicationId `
+#   -TenantId $env:TenantId `
+#   -ApplicationSecret $env:ApplicationSecret `
+#   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
+
+# Export with SP and certificate
+# NOTE: this required installing certificate in local machine
+# Export-M365DSCConfiguration `
+#   -Components @("IntuneAntivirusPolicyWindows10SettingCatalog") `
+#   -ApplicationId $env:ApplicationId `
+#   -TenantId $env:TenantId `
+#   -CertificateThumbprint $env:M365DSCCertificateThumbprint `
+#   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
 
 Export-M365DSCConfiguration `
   -Workloads @("INTUNE") `
   -ApplicationId $env:ApplicationId `
   -TenantId $env:TenantId `
-  -ApplicationSecret $env:ApplicationSecret `
+  -CertificateThumbprint $env:M365DSCCertificateThumbprint `
   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
-
