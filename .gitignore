@@ -5,6 +5,7 @@ venv
 # env and credential files
 .env
 auth.json
+M365DSC.cer
 
 # log file
 /log

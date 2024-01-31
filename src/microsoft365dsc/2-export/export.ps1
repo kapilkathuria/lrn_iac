@@ -3,27 +3,26 @@
 
 # Get env variables
 Set-PsEnv
-Write-Output($env:ApplicationId)
 
 # Getting client credential
-# $Credential = Get-Credential
+$Credential = Get-Credential
 
 # Exporting resources using credentials
 # Export-M365DSCConfiguration `
-#   -Components @("IntuneAccountProtectionPolicy") `
+#   -Components @("IntuneAntivirusPolicyWindows10SettingCatalog") `
 #   -Credential $Credential `
 #   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
 
 # Exporting resources using SP
-Export-M365DSCConfiguration `
-  -Components @("IntuneAccountProtectionPolicy") `
-  -ApplicationId $env:ApplicationId `
-  -TenantId $env:TenantId `
-  -ApplicationSecret $env:ApplicationSecret `
-  -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
-
-  # explort all Intune related configuration
 # Export-M365DSCConfiguration `
-#   -Workloads @("INTUNE") `
-#   -Credential $Credential `
+#   -Components @("IntuneAccountProtectionPolicy") `
+#   -ApplicationId $env:ApplicationId `
+#   -TenantId $env:TenantId `
+#   -ApplicationSecret $env:ApplicationSecret `
 #   -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
+
+# explort all Intune related configuration
+Export-M365DSCConfiguration `
+  -Workloads @("INTUNE") `
+  -Credential $Credential `
+  -Path C:\Users\kapil\projects\lrn_iac\src\microsoft365dsc\2-export\config
