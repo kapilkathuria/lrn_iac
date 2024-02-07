@@ -10,3 +10,6 @@ M365DSC.cer
 # log file
 /log
 *.log
+
+# mof files
+*.mof
