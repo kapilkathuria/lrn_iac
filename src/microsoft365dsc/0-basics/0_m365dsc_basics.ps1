@@ -52,4 +52,12 @@ Update-M365DSCAzureAdApplication `
   -Type Certificate `
   -CertificatePath C:\Users\kapil\projects\lrn_iac\M365DSC.cer
 
+# https://microsoft365dsc.com/user-guide/get-started/securing-configurations/
+# Securing your Compiled Configuration
+# this need to be run with admin rights
+Set-M365DSCAgentCertificateConfiguration
+Set-M365DSCAgentCertificateConfiguration -GeneratePFX -Password SomePass -ForceRenew
+# 
+# post this, copy files .cer and .pfx from C:\Users\kapil\AppData\Local\Temp appropriate place
+
 

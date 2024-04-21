@@ -11,5 +11,6 @@ M365DSC.cer
 /log
 *.log
 
-# mof files
+# files containing secerts
 *.mof
+ConfigurationData.psd1
