@@ -1,0 +1,1 @@
+Install-Module -Name DSCR_AppxPackage -Scope AllUsers

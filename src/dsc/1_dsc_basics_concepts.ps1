@@ -8,6 +8,7 @@
 Get-DscResource -Name Intune*
 Get-DscResource
 Get-DscResource -Name IntuneDeviceCategory | Select-Object Properties -ExpandProperty Properties | Format-Table
+Get-DscResource -Name *appx*
 
 # To find dsc resource
 Find-DSCResource -Name smbshare
