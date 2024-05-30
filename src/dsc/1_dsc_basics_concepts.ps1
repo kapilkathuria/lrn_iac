@@ -44,10 +44,10 @@ Get-Module PackageManagement -ListAvailable
 Install-Module -Name PSDesiredStateConfiguration
 
 # help
-. .\src\dsc\2firstconfig_dir.ps1
+. .\src\dsc\firstconfig_dircreate.ps1
 . .\src\dsc\machineconfig.ps1
 help LabConfig
-help sample
+help sample 
 
 # Let's create a 2nd config with variable and try
 . .\src\dsc\secondconfig.ps1

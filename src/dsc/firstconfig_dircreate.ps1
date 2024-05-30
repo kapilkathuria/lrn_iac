@@ -5,7 +5,7 @@ configuration sample {
     File Demo {
       DestinationPath = "C:\temp\dscdemo"
       Ensure = "Present"
-      Type = "Director"
+      Type = "Directory"
     }
   }
 }
