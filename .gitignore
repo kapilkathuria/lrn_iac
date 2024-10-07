@@ -4,6 +4,7 @@ venv
 
 # env and credential files
 .env
+env.ps1
 auth.json
 M365DSC.cer
 

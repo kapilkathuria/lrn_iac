@@ -17,6 +17,7 @@ foreach ($user in $users) {
         $userLicenseData += [pscustomobject]@{
             UserPrincipalName = $user.UserPrincipalName
             DisplayName = $user.DisplayName
+            UsageLocation = $user.UsageLocation
             LicenseSkuId = $license.SkuId
             LicenseSkuPartNumber = $license.SkuPartNumber
         }
@@ -27,4 +28,4 @@ foreach ($user in $users) {
 $userLicenseData | Export-Csv -Path "M365UserLicenses.csv" -NoTypeInformation
 
 # Display the license data in PowerShell console
-$userLicenseData
+$userLicenseData | Format-Table
